@@ -1,10 +1,12 @@
-const cheerio = require('cheerio')
-const $ = cheerio.load('https://www.icoalert.com/')
+const cheerio = require("cheerio");
+const $ = cheerio.load("https://www.icoalert.com/");
 
-var urls = []
+var urls = [];
 
-$('.vsc-initialized .container-main .col-contain-upcoming .col.upcoming .column-count .ico-wrap .ico-links').each(function(index, element){
-  urls.push(element)
+$(
+  ".vsc-initialized .container-main .col-contain-upcoming .col.upcoming .column-count .ico-wrap .ico-links"
+).each(function(index, element) {
+  urls.push(element);
 });
 
-console.log(urls)
+console.log(urls);
