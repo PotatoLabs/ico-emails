@@ -17,13 +17,20 @@ const $ = cheerio.load("https://www.icoalert.com/");
 // console.log(urls);
 
 
-request("https://www.icoalert.com/", function (error, response, html) {
+request("https://www.icoalert.com/", function (error, response, body) {
   if (!error && response.statusCode == 200) {
     // console.log(html);
-    const $ = cheerio.load(html);
-    console.log($);
-    let text = $('.ico-links').text()
-    console.log(text);
+    const $ = cheerio.load(body);
+    let links = $('a')
+    $(links).each(function(i, link){
+      console.log($(link).attr('href'));
+    });
+    // console.log($);
+    // let length = $('.ico-links').children().first().text();
+    // console.log(length)
+    // let text = $('src').filter('.upcoming').attr('class');
+    // // let text = $('.col.upcoming .ico-links').attr("src");
+    // console.log(text);
     // $('ico-links').each(function(i, element){
     //   let a = $(this);
     //   console.log(a.text());
