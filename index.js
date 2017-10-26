@@ -7,7 +7,7 @@ request("https://www.icoalert.com/", function (error, response, body) {
   if (!error && response.statusCode == 200) {
     // console.log(html);
     const $ = cheerio.load(body);
-    let links = $('a')
+    let links = $('.col-contain-upcoming').find('a')
     $(links).each(function(i, link){
       console.log($(link).attr('href'));
     });
