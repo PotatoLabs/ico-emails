@@ -7,4 +7,5 @@ $('.vsc-initialized .container-main .col-contain-upcoming .col.upcoming .column-
   urls.push(element)
 });
 
+//this logs urlss
 console.log(urls)
