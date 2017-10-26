@@ -13,13 +13,13 @@ request("https://www.icoalert.com/", function (error, response, body) {
     });
   }
   var emails = []
-  urls.map(function(url){
+  urls.forEach(function(url){
     console.log(url)
     request(url, function (error, response, body){
       if (!error && response.statusCode == 200) {
-        console.log(body.match(/(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/gi));
+        emails.push(body.match(/(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/gi));
       }
     })
   })
-
+  console.log(emails)
 });
