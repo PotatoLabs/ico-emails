@@ -19,11 +19,14 @@ const $ = cheerio.load("https://www.icoalert.com/");
 
 request("https://www.icoalert.com/", function (error, response, html) {
   if (!error && response.statusCode == 200) {
-    console.log(html);
+    // console.log(html);
     const $ = cheerio.load(html);
-    $('ico-wrap').each(function(i, element){
-      var a = $(this).prev();
-      console.log(a.text());
-    });
+    console.log($);
+    let text = $('.ico-links').text()
+    console.log(text);
+    // $('ico-links').each(function(i, element){
+    //   let a = $(this);
+    //   console.log(a.text());
+    // });
   }
 });
